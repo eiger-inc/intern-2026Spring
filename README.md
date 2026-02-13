@@ -15,13 +15,13 @@
 
 以下のツールを事前にインストールしてください。すべて無料で利用できます。
 
-| ツール | 用途 | ダウンロード |
-|--------|------|-------------|
-| **Cursor or Visual Studio Code (VS Code)** | コードエディタ | https://cursor.com/ja, https://code.visualstudio.com/ |
-| **Git** | バージョン管理 | https://git-scm.com/downloads |
-| **Docker Desktop** | コンテナ環境 | https://www.docker.com/products/docker-desktop/ |
-| **Node.js (v20以上)** | JavaScriptの実行環境 | https://nodejs.org/ |
-| **GitHub アカウント** | コード共有 | https://github.com/ |
+| ツール | 用途 | 
+|--------|------|
+| **Cursor or Visual Studio Code (VS Code)** | コードエディタ |
+| **Git** | バージョン管理 |
+| **Docker Desktop** | コンテナ環境 |
+| **Node.js (v20以上)** | JavaScriptの実行環境 |
+| **GitHub アカウント** | コード共有 |
 
 > **Windowsの方へ**: Gitインストール時に「Git Bash」も一緒にインストールされます。ターミナル操作はGit Bashを使うのがおすすめです。
 
