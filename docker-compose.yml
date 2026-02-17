@@ -1,0 +1,80 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: intern_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: intern_db
+      MYSQL_USER: intern_user
+      MYSQL_PASSWORD: intern_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - intern_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: intern_backend
+    volumes:
+      - ./backend:/app
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      - DATABASE_URL=mysql+pymysql://intern_user:intern_password@mysql:3306/intern_db
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - intern_network
+    command: >
+      sh -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: intern_frontend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    networks:
+      - intern_network
+    command: npm run dev -- --hostname 0.0.0.0
+
+  app:
+    build:
+      context: ./.devcontainer
+      dockerfile: Dockerfile
+    container_name: intern_app
+    volumes:
+      - .:/workspace:cached
+    command: sleep infinity
+    networks:
+      - intern_network
+    depends_on:
+      - mysql
+      - backend
+      - frontend
+
+networks:
+  intern_network:
+    driver: bridge
+
+volumes:
+  mysql_data:

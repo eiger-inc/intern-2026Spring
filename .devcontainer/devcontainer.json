@@ -1,0 +1,56 @@
+{
+  "name": "Intern Development Environment",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose",
+  "runServices": ["mysql", "backend", "frontend"],
+  
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-typescript-next"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": false,
+        "python.linting.flake8Enabled": false,
+        "[python]": {
+          "editor.defaultFormatter": "charliermarsh.ruff",
+          "editor.formatOnSave": true,
+          "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+          }
+        },
+        "ruff.enable": true,
+        "ruff.organizeImports": true,
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      },
+      "portsAttributes": {
+        "3000": {
+          "label": "Frontend (Next.js)",
+          "onAutoForward": "notify"
+        },
+        "8000": {
+          "label": "Backend (FastAPI)",
+          "onAutoForward": "notify"
+        },
+        "3306": {
+          "label": "MySQL",
+          "onAutoForward": "silent"
+        }
+      }
+    }
+  },
+  
+  "forwardPorts": [3000, 8000, 3306],
+  "postCreateCommand": "echo 'Environment setup complete!'"
+}

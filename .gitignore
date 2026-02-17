@@ -1,0 +1,108 @@
+# =============================================================================
+# Environment files
+# =============================================================================
+.env
+.env.local
+.env.*.local
+*.env
+
+# =============================================================================
+# IDE / Editor
+# =============================================================================
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# =============================================================================
+# macOS
+# =============================================================================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# =============================================================================
+# Node.js / Frontend
+# =============================================================================
+node_modules/
+.next/
+out/
+.nuxt/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# =============================================================================
+# Python / Backend
+# =============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.hypothesis/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.mypy_cache/
+.ruff_cache/
+
+# =============================================================================
+# Terraform
+# =============================================================================
+infrastructure/terraform/.terraform/
+infrastructure/terraform/*.tfstate
+infrastructure/terraform/*.tfstate.*
+infrastructure/terraform/*.tfvars
+!infrastructure/terraform/*.tfvars.example
+infrastructure/terraform/.terraform.lock.hcl
+infrastructure/terraform/backend-setup/.terraform/
+infrastructure/terraform/backend-setup/*.tfstate
+infrastructure/terraform/backend-setup/*.tfstate.*
+infrastructure/terraform/backend-setup/.terraform.lock.hcl
+
+# =============================================================================
+# Docker
+# =============================================================================
+*.log
+
+# =============================================================================
+# Secrets / Credentials
+# =============================================================================
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# =============================================================================
+# Misc
+# =============================================================================
+*.log
+tmp/
+temp/
+.cache/
