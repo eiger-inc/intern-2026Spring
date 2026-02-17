@@ -73,20 +73,6 @@ coverage.xml
 .ruff_cache/
 
 # =============================================================================
-# Terraform
-# =============================================================================
-infrastructure/terraform/.terraform/
-infrastructure/terraform/*.tfstate
-infrastructure/terraform/*.tfstate.*
-infrastructure/terraform/*.tfvars
-!infrastructure/terraform/*.tfvars.example
-infrastructure/terraform/.terraform.lock.hcl
-infrastructure/terraform/backend-setup/.terraform/
-infrastructure/terraform/backend-setup/*.tfstate
-infrastructure/terraform/backend-setup/*.tfstate.*
-infrastructure/terraform/backend-setup/.terraform.lock.hcl
-
-# =============================================================================
 # Docker
 # =============================================================================
 *.log

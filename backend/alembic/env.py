@@ -6,13 +6,13 @@ from pathlib import Path
 # プロジェクトルート（app パッケージを含むディレクトリ）を Python パスに追加
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from logging.config import fileConfig
+from logging.config import fileConfig  # noqa: E402
 
-from alembic import context
-from sqlalchemy import engine_from_config, pool
+from sqlalchemy import engine_from_config, pool  # noqa: E402
 
-from app.database import Base
-from app.models import Item  # noqa: F401  — モデルを読み込んでメタデータに登録
+from alembic import context  # noqa: E402
+from app.database import Base  # noqa: E402
+from app.models import Item  # noqa: E402, F401  — モデルを読み込んでメタデータに登録
 
 config = context.config
 if config.config_file_name is not None:
