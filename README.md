@@ -382,6 +382,7 @@ GitHubリポジトリにコードをプッシュしたURLもしくはzipにし�
 | コンテナが起動しない | VS Code の出力パネル（Dev Containers）でエラーログを確認 |
 | バックエンドの変更が反映されない | ファイルを保存すると自動で反映されます（ホットリロード） |
 | フロントエンドの変更が反映されない | ブラウザをハードリロード（Ctrl+Shift+R / Cmd+Shift+R） |
+| 環境がおかしくなった / 原因不明のエラー | コマンドパレット（Ctrl+Shift+P / Cmd+Shift+P）→「Dev Containers: Rebuild Container」でコンテナを再構築 |
 
 ### Git関連
 
