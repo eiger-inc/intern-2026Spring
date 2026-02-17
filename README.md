@@ -28,9 +28,8 @@
 ### テンプレートのセットアップ
 
 **1. テンプレートをクローン（ダウンロード）する**
-
+Httpsの場合
 ```bash
-# リポジトリURLは別途案内します
 git clone https://github.com/eiger-inc/intern-2026Spring.git
 cd <プロジェクトフォルダ>
 ```
